@@ -41,12 +41,16 @@ const linkQuery = computed(() => {
       </div>
     </a>
     <div
+      class="navbar-tabs"
+    >
+      <!--
+	<div
       v-if="
         authStore.currentPath !== 'admin' &&
           !(authStore.isMobileDevice && authStore.isNarrowDevice)
       "
       class="navbar-tabs"
-    >
+    >-->
       <router-link
         v-if="authStore.token"
         :to="`/component`"
@@ -70,6 +74,13 @@ const linkQuery = computed(() => {
         }`"
       >
         地圖交叉比對
+      </router-link>
+      <router-link
+        :to="`/armap${
+          linkQuery.includes('undefined') ? '' : linkQuery
+        }`"
+      >
+        AR 地圖
       </router-link>
     </div>
     <div class="navbar-user">

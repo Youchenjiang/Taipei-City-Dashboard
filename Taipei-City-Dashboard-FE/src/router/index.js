@@ -17,6 +17,7 @@ import MapView from "../views/MapView.vue";
 import ComponentView from "../views/ComponentView.vue";
 import ComponentInfoView from "../views/ComponentInfoView.vue";
 import EmbedView from "../views/EmbedView.vue";
+import ARMapView from "../views/ARMapView.vue";
 
 const routes = [
 	{
@@ -37,6 +38,11 @@ const routes = [
 		path: "/mapview",
 		name: "mapview",
 		component: MapView,
+	},
+	{
+		path: "/armap",
+		name: "armap",
+		component: ARMapView,
 	},
 	{
 		path: "/component",
@@ -120,7 +126,7 @@ router.beforeEach((to) => {
 	const authStore = useAuthStore();
 	if (authStore.isMobileDevice && authStore.isNarrowDevice) {
 		if (
-			!["dashboard", "component-info", "callback", "embed"].includes(
+			!["dashboard", "component-info", "callback", "embed","armap"].includes(
 				to.name
 			)
 		) {
